@@ -1,0 +1,28 @@
+<!-- Update Appareil Header with Updated Design -->
+<h3 class="ms-5 p-3 text-center text-primary" style="background-color: #4b3bff; padding: 10px;">Update Appareil</h3>
+
+<!-- Form Section with Updated Design -->
+<div class="p-5" style="background-color: #E3F2FD;">
+  <form class="form" name="registerForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="labelle" class="form-label text-info">Labelle</label>
+      <input type="text" class="form-control w-50" placeholder="Labelle" [(ngModel)]="appareils.labelle" name="labelle">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label text-info">Description</label>
+      <input type="text" class="form-control w-50" placeholder="Description" [(ngModel)]="appareils.description" name="description">
+    </div>
+    <div class="mb-3">
+      <label for="state" class="form-label text-info">State</label>
+      <input type="number" min="0" max="1" class="form-control w-50" placeholder="State" [(ngModel)]="appareils.state" name="state">
+    </div>
+    <div class="mb-3">
+      <label for="categories" class="form-label text-info">Category</label>
+      <select class="form-select w-50" [(ngModel)]="appareils.categories" name="categories">
+        <option value="" disabled selected>Select a category</option>
+        <option *ngFor="let category of categorie" [value]="category.id" style="color: #FFEB3B;">{{ category.id }} - {{ category.labelle }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-warning mt-3">Update</button>
+  </form>
+</div>

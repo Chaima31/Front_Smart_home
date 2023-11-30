@@ -1,0 +1,44 @@
+<!-- Categories Management Header with Updated Design -->
+<h3 class="ms-5 p-3 text-center text-primary">Categories Management</h3>
+
+<!-- Form Section with Updated Design -->
+<div class="p-5 bg-light">
+  <form class="form" (ngSubmit)="ngSubmit()">
+    <div class="mb-3">
+      <label for="labelle" class="form-label">Labelle</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="labelle" name="labelle" placeholder="Labelle" [(ngModel)]="categories.labelle">
+        <button type="submit" class="btn btn-success" [disabled]="!categories.labelle">Add</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Table Section with Updated Design -->
+<table class="table table-striped table-bordered">
+  <thead class="bg-primary text-white">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Labelle</th>
+      <th scope="col">Appareils</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Iterate through categories -->
+    <tr *ngFor="let category of categorie">
+      <td>{{ category.id }}</td>
+      <td>{{ category.labelle }}</td>
+      <td>
+        <!-- Iterate through appareils for each category -->
+        <span *ngFor="let appareil of appareil">{{ appareil.labelle }}, </span>
+
+      </td>
+      <td>
+        <!-- Buttons for actions with updated design -->
+        <button (click)="deleteCategorie(category.id)" class="btn btn-danger me-2">Delete</button>
+        <button (click)="updateCategorie(category.id)" class="btn btn-warning">Update</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
